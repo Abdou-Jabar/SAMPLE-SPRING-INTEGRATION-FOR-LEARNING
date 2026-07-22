@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw -q -o test)",
+      "Bash(timeout 360 \"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1.4/plugins/maven/lib/maven3/bin/mvn\" -q test -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true)",
+      "Bash(\"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1.4/plugins/maven/lib/maven3/bin/mvn\" -o -q spring-boot:run)",
+      "Bash(echo \"started, pid $!\")",
+      "Read(//tmp/**)",
+      "Bash(taskkill //F //IM java.exe)",
+      "Bash(\"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1.4/plugins/maven/lib/maven3/bin/mvn\" -o -q dependency:build-classpath -Dmdep.outputFile=/tmp/deps.txt)",
+      "Bash(curl -s -X POST http://localhost:8080/orders -H \"Content-Type: application/json\" -d '{\"product\":\"Livre\",\"quantity\":2,\"amount\":39.9,\"type\":\"EXPRESS\"}')",
+      "Bash(curl -s -X POST http://localhost:8080/orders -H \"Content-Type: application/json\" -d '{\"product\":\"Clavier\",\"quantity\":1,\"amount\":79.0,\"type\":\"STANDARD\"}')",
+      "Bash(curl -s -X POST http://localhost:8080/orders -H \"Content-Type: application/json\" -d '{\"product\":\"Stylo\",\"quantity\":1,\"amount\":0,\"type\":\"STANDARD\"}')"
+    ]
+  }
+}
